@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Elastic Vision</title>
+
+    <meta name="description" content="Elastic Vision">
+    <meta name="author" content="Jongmin Kim">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/es.css" id="theme">
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/tomorrow.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+<div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+        <section data-background="images/esbackground.png" data-state="eslogo">
+            <h1>Elastic Vision</h1>
+            <p>
+              <a href="https://github.com/kimjmin">Jongmin Kim</a> / <a href="http://twitter.com/kimjmin">@kimjmin</a>
+            </p>
+        </section>
+
+        <section>
+          <section>
+            <h2 style="color:red">Remember!</h2>
+            <ul>
+              <li><em>This is not an official informations.</em></li>
+              <li><em>All these informations can be changed or removed.</em></li>
+              <li><em>check <a href="https://www.elastic.co/blog" target="_blank">https://www.elastic.co/blog</a> for official release.</em></li>
+            </ul>
+          </section>
+          <section>
+              <h2>About Me</h2>
+              <ul>
+                  <li>Developer Advocate (Evangelist) at Elastic</li>
+                  <li>Based: Republic of Korea (South)</li>
+                  <li>Joined: Jun 2015</li>
+              </ul>
+          </section>
+          <section>
+              <h3>Release, we have</h3>
+              <ul>
+                  <li>Elasticsearch 2.0</li>
+                  <li>Kibana 4.2</li>
+                  <li>Logstash 2.0</li>
+              </ul>
+          </section>
+        </section>
+
+        <!-- Example of nested vertical slides -->
+        <section>
+            <section>
+                <h2>Elasticsearch 2.0</h2>
+                <p>
+                  <a href="what-s-new-in-elasticsearch-20.html" target="_blank">What's new in Elasticsearch 2.0</a>
+                </p>
+                <p>
+                  <small><a href="https://github.com/imotov">Igor Motov</a> / <a href="http://twitter.com/imotov">@imotov</a></small>
+                </p>
+            </section>
+            <section>
+                <h3>Elasticsearch 2.0 Overview & Demo </h3>
+                <p>
+                  <iframe width="560" height="315" src="https://www.youtube.com/embed/KlXG2XLHYc0" frameborder="0" allowfullscreen></iframe>
+                </p>
+            </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Kibana 4.2</h2>
+            <ul>
+              <li>Field Formatter</li>
+              <li>Visualization</li>
+              <li>Plugins</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Field Formatter</h3>
+            <img src="images/kibana-field-formatter.png" alt="Field Formatter in Kibana" />
+          </section>
+
+          <section>
+            <h3>Visualization</h3>
+            <img src="images/kibana-dark-theme.png" alt="Dark Theme" width="720px" />
+          </section>
+
+          <section>
+            <h3>Plugins</h3>
+            <img src="images/kibana-plugins.png" alt="kibana plugins" width="720px" />
+            <pre><code class="shell">bin/kibana plugin --install elasticsearch/marvel/latest</code></pre>
+          </section>
+
+          <section>
+            <h3>Beyond kibana 4.2</h3>
+            <p>
+              Kibana will be a control panel of all Elastic products.
+            </p>
+          </section>
+
+        </section>
+
+        <section>
+          <section>
+            <h2>Logstash & Beats</h2>
+          </section>
+
+          <section>
+            <h3>Logstash</h3>
+            <img src="images/logstash-image.png" alt="Logstash" />
+          </section>
+
+          <section>
+            <h3>Beats</h3>
+            <img src="images/beats-image.png" alt="Beats" />
+          </section>
+
+          <section>
+            <h3>Beats</h3>
+            <p>
+              input(packet/file/top) > output(logstash/elasticsearch)
+            </p>
+            <h3>Logstash</h3>
+            <p>
+              input(Beats) > filters > output(elasticsearch)
+            </p>
+          </section>
+          <section>
+            <h3>Beats & logstash usage</h3>
+            <ul>
+              <li>beats : forwarder</li>
+              <li>logstash : filtering</li>
+              <li>make logstash more thin</li>
+            </ul>
+          </section>
+          <section>
+            <h3>nodstash (ingest node)</h3>
+            <ul>
+              <li>Node for special features.</li>
+              <li>data filters (grok, geoip, kv/mutate, date...)</li>
+              <li>Pipeline: composed of a chain of processors.</li>
+            </ul>
+            <pre><code class="shell">node.ingest: true</code></pre>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>ELK Stack</h2>
+            <ul>
+              <li>One click install package (exe, pkg)</li>
+              <li>X-Plugins: Elastic Extension</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>versioning</h2>
+            <span class="fragment">
+              <ul>
+                <li>elasticsearch 2.0</li>
+                <li>logstash 2.0</li>
+                <li>kibana 4.2</li>
+                <li>beats 1.0</li>
+              </ul>
+            </span>
+            <span class="fragment">
+              <img src="images/r_arrow.png" alt="" style="border:none;box-shadow:none;width:100px;margin:0 20px;"/>
+            </span>
+            <span class="fragment">
+              <ul>
+                <li>elasticsearch 5.0</li>
+                <li>logstash 5.0</li>
+                <li>kibana 5.0</li>
+                <li>beats 5.0</li>
+              </ul>
+            </span>
+
+          </section>
+        </section>
+
+        <section style="text-align: left;">
+            <h2>The end</h2>
+            <ul>
+                <li>github: <a href="https://github.io/kimjmin" target="_blank">https://github.io/kimjmin</a></li>
+                <li>slides: <a href="https://kimjmin.github.io/presentations" target="_blank">https://kimjmin.github.io/presentations</a></li>
+            </ul>
+        </section>
+
+        <section>
+          <section>
+            <h2>Elasticsearch 한국 커뮤니티</h2>
+          </section>
+
+          <section>
+            <h3>the Definitive Guide</h3>
+            <img src="images/book-es-cover-beta.png" alt="" />
+            <p>
+              <a href="https://github.com/elastic/elasticsearch-definitive-guide" target="_blank">https://github.com/elastic/elasticsearch-definitive-guide</a>
+            </p>
+          </section>
+          <section>
+            <h3>X Blogging</h3>
+            <p>
+              개인 또는 기업 블로그의 Elasticsearch 관련 포스트를 elastic.co 블로그에 동시 포스팅.
+            </p>
+            <p>
+              <a href="https://www.elastic.co/blog">https://www.elastic.co/blog</a>
+            </p>
+          </section>
+          <section>
+            <h2>Kibana Demo</h2>
+            <p>
+              <a href="https://14faa4d979096e1936d5d292ba5dbf6b.ap-northeast-1.aws.found.io/#/dashboard/서울시-지하철-승-slash-하차-인원" target="_blank">서울시 지하철 유동인원 데모</a>
+            </p>
+            <p>
+              <a href="https://github.com/kimjmin/elastic-demo" target="_blank">https://github.com/kimjmin/elastic-demo</a>
+            </p>
+          </section>
+
+        </section>
+
+    </div>
+    <div class="footer-left"><img src="images/elastic.png" width="100px" height="30.6px"></div>
+    <div class="footer-site">www.elastic.co</div>
+    <div class="footer-middle"><img src="images/pagenumber.png"></div>
+    <div class="footer-copy">CC-BY-ND 4.0</div>
+    <hr class="footer-left">
+    <hr class="footer-right">
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+
+    // Full list of configuration options available at:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        slideNumber: true,
+        transitionSpeed: "fast",
+
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [
+            { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+            { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+            { src: 'plugin/zoom-js/zoom.js', async: true },
+            { src: 'plugin/notes/notes.js', async: true }
+        ]
+    });
+
+</script>
+
+</body>
+</html>
